@@ -1,5 +1,5 @@
 @echo off
-title Command Manager
+title Command Manager falconhawk37
 
 call :Colors "Cyan" "black" "Welcome to Command Manager!"
 echo.
