@@ -1,7 +1,11 @@
 @echo off
 title Command Manager falconhawk37
 
-call :Colors "Cyan" "black" "Welcome to Command Manager!"
+echo.
+call :User_Check
+echo.
+
+call :Colors "Cyan" "black" "'						Welcome to Command Manager!						'"
 echo.
 
 echo ^<Command list^>: act ^| push ^| pull ^| restore ^| reload ^| exit
@@ -45,3 +49,20 @@ echo ^<Command list^>: act ^| push ^| pull ^| restore ^| reload ^| exit
 	call :Agreement
 	start Bat\Restore_For_TR.bat
 	goto Manage_Menu
+
+:User_Check
+	cmdkey /list:git:https://github.com | find "falcon" > C:\Users\User\User_toggler.txt
+	set /p UserCheck=< C:\Users\User\User_toggler.txt
+	set UserCheck=%UserCheck:~18%
+
+	if %UserCheck%==falconhawk37 exit/b
+
+	find "Er" C:\Users\User\Users_data.txt > temp.txt
+	set /p Er_pass=< temp.txt
+	del temp.txt
+	set Er_pass=%Er_pass:~14%
+
+	if %UserCheck% neq falconhawk37 (cmdkey /delete:git:https://github.com >nul & cmdkey /generic:git:https://github.com /user:falconhawk37 /pass:Er_pass >nul)
+
+	call :Colors "Green" "black" "'///***   The user have been changed successfully!   ***///'"
+	exit/b
