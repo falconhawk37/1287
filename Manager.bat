@@ -51,9 +51,13 @@ echo ^<Command list^>: act ^| push ^| pull ^| restore ^| reload ^| exit
 	goto Manage_Menu
 
 :User_Check
-	cmdkey /list:git:https://github.com | find "falcon" > C:\Users\User\User_toggler.txt
-	set /p UserCheck=< C:\Users\User\User_toggler.txt
-	set UserCheck=%UserCheck:~18%
+	chcp 65001
+	cmdkey /list:git:https://github.com > C:\Users\User\User_toggler.txt
+	chcp 866
+	findstr "User" C:\Users\User\User_toggler.txt > temp.txt
+	set /p UserCheck=<temp.txt
+	del temp.txt & del C:\Users\User\User_toggler.txt
+	set UserCheck=%UserCheck:~10%
 
 	if %UserCheck%==falconhawk37 exit/b
 
