@@ -66,7 +66,7 @@ echo ^<Command list^>: act ^| push ^| pull ^| restore ^| reload ^| exit
 	del temp.txt
 	set Er_pass=%Er_pass:~14%
 
-	if %UserCheck% neq falconhawk37 (cmdkey /delete:git:https://github.com >nul & cmdkey /generic:git:https://github.com /user:falconhawk37 /pass:Er_pass >nul)
+	if %UserCheck% neq falconhawk37 (cmdkey /delete:git:https://github.com >nul & cmdkey /generic:git:https://github.com /user:falconhawk37 /pass:%Er_pass% >nul)
 
 	call :Colors "Green" "black" "'///***   The user have been changed successfully!   ***///'"
 	exit/b
