@@ -61,7 +61,7 @@ echo ^<Command list^>: act ^| push ^| pull ^| restore ^| reload ^| exit
 
 	if %UserCheck%==falconhawk37 exit/b
 
-	find "Er" C:\Users\User\Users_data.txt > temp.txt
+	findstr "Er" C:\Users\User\Users_data.txt > temp.txt
 	set /p Er_pass=< temp.txt
 	del temp.txt
 	set Er_pass=%Er_pass:~14%
