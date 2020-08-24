@@ -83,7 +83,7 @@ echo ^<Command list^>: act ^| push ^| pull ^| sync ^| restore ^| reload ^| exit
 	findstr "Er" %USERPROFILE%\Users_data.txt > temp.txt
 	set /p Er_pass=< temp.txt
 	del temp.txt
-	set Er_pass=%Ed_pass:~14%
+	set Er_pass=%Er_pass:~14%
 
 	if %UserCheck% neq falconhawk37 (cmdkey /delete:git:https://github.com >nul & cmdkey /generic:git:https://github.com /user:falconhawk37 /pass:%Er_pass% >nul)
 
