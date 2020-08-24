@@ -1,4 +1,4 @@
-@echo oFF
+@echo on
 title Command Manager falconhawk37
 
 goto WITH_AUTHORIZATION
