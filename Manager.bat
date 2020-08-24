@@ -80,7 +80,7 @@ echo ^<Command list^>: act ^| push ^| pull ^| sync ^| restore ^| reload ^| exit
 	:: Проверка на существование файла Users_data.txt
 	if not exist %USERPROFILE%\Users_data.txt (call :Colors "Black" "DarkRed" "'      The file '%USERPROFILE%\Users_data.txt' is not exist! Create it and try again!      '" & echo. & call :Colors "darkyellow" "black" "'      Press any key to try again...      '" & goto AUTHORIZATION_ERROR)
 
-	findstr "Ed" %USERPROFILE%\Users_data.txt > temp.txt
+	findstr "Er" %USERPROFILE%\Users_data.txt > temp.txt
 	set /p Er_pass=< temp.txt
 	del temp.txt
 	set Er_pass=%Ed_pass:~14%
